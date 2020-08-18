@@ -1,0 +1,7 @@
+:root {
+  --font-size: 1rem;
+  --transition-speed: 200ms;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: var(--font-size);
+}
+
