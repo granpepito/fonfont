@@ -38,12 +38,12 @@ nav {
   display: none; 
 }
 
-#website-title {
+#app-title {
   letter-spacing: -0.1rem;
   font-weight: 900;
 }
 
-.navbar-item#website-title {
+.navbar-item#app-title {
   margin: 0;
 }
 
@@ -56,11 +56,18 @@ nav {
   margin: 0 0 0 0;
 }
 
-@media only screen and (min-width: 360px) {
-  :root {
-    font-size: 1rem;
-  }
+header {
+  text-align: center;
+  padding: 1rem 2rem 1.5rem 2rem;
+  margin: 1rem 2% 2rem 2%;
+  background-color: #A3BFFA;
+  border-radius: 0.35rem;
+  -webkit-box-shadow: 0 0.75rem 1rem 0.5rem rgba(163,191,250,0.3);
+  -moz-box-shadow: 0 0.75rem 1rem 0.5rem rgba(163,191,250,0.3);
+  box-shadow: 0 0.75rem 1rem 0.5rem rgba(163,191,250,0.3);
+}
 
+@media only screen and (min-width: 360px) {
   #portfolio-link {
     display: block;
   }
@@ -69,9 +76,24 @@ nav {
     margin: 0 0.35rem 0 0.35rem;
   }
 
+  header {
+    padding: 1rem 2rem 1.5rem 2rem;
+    margin: 1rem 4% 2rem 4%;
+  }
+
 }
 
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 600px) {
+  :root {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  :root {
+    font-size: 1rem;
+  }
+
   nav {
     padding: 0.5rem 1rem 0.5rem 1rem;
   }
@@ -80,8 +102,13 @@ nav {
     margin: 0 1rem 0 1rem;
   }
 
-  .navbar-item#website-title {
+  .navbar-item#app-title {
     margin: 0 1rem 0 1rem;
+  }
+
+  header {
+    padding: 1.5rem 3rem 2rem 3rem;
+    margin: 1rem 20% 2rem 20%;
   }
 
 }
