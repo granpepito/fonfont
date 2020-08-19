@@ -1,7 +1,85 @@
 :root {
-  --font-size: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   --transition-speed: 200ms;
   font-family: Inter, Arial, Helvetica, sans-serif;
-  font-size: var(--font-size);
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+}
+
+.navbar-item {
+  margin: 0.75rem;
+  color: black;
+  text-decoration: none;
+}
+
+.navbar-item :hover {
+  color: #5A67D8 ;
+  transition: var(--transition-speed);
+}
+
+.navbar-item a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.github-icon:hover {
+  filter: invert(100%) url('../icons/github.svg#colorFilter');
+}
+
+#portfolio-link {
+  display: none; 
+}
+
+#website-title {
+  letter-spacing: -0.1rem;
+}
+
+.navbar-item#website-title {
+  margin: 0;
+}
+
+.navbar-right {
+  display: flex;
+  align-content: center;
+}
+
+.navbar-right > .navbar-item {
+  margin: 0 0 0 0;
+}
+
+@media only screen and (min-width: 360px) {
+  :root {
+    font-size: 1rem;
+  }
+
+  #portfolio-link {
+    display: block;
+  }
+
+  .navbar-right > .navbar-item {
+    margin: 0 0.35rem 0 0.35rem;
+  }
+
+}
+
+@media only screen and (min-width: 600px){
+  nav {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+  }
+
+  .navbar-right > .navbar-item {
+    margin: 0 1rem 0 1rem;
+  }
+
+  .navbar-item#website-title {
+    margin: 0 1rem 0 1rem;
+  }
+
+}
