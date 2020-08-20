@@ -49,23 +49,25 @@ main {
 
 	.pair-presentation-section {
 		display: flex;
-		justify-content: flex-start;
 		margin: 0 1rem;
+	}
+
+	#pair-presentation-header .pair-presentation-section {
 		padding-bottom: 1.5rem;
 		border-style: hidden hidden solid hidden;
 		border-width: 1px;
 		border-color: $black;
 	}
 
-	#pair-presentation-header .type-fonts {
+	.type-fonts {
 		grid-column: 1 / 3;
 	}
 
-	#pair-presentation-header .type-weights {
+	.type-weights {
 		grid-column: 3 / 5;
 	}
 
-	#pair-presentation-header .type-example {
+	.type-example {
 		grid-column: 5 / -1;
 	}
 
