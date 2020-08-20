@@ -16,13 +16,6 @@
 }
 
 @media only screen and (min-width: 360px) {
-	#portfolio-link {
-		display: block;
-	}
-
-	.navbar-right > .navbar-item {
-		margin: 0 0.35rem 0;
-	}
 }
 
 @media only screen and (min-width: 600px) {
@@ -32,19 +25,4 @@
 }
 
 @media only screen and (min-width: 768px) {
-	:root {
-		font-size: 1rem;
-	}
-
-	nav {
-		padding: 0.5rem 1rem 0.5rem;
-	}
-
-	.navbar-right > .navbar-item {
-		margin: 0 1rem 0;
-	}
-
-	.navbar-item#app-title {
-		margin: 0 1rem 0;
-	}
 }

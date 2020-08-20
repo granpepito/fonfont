@@ -1,9 +1,10 @@
 @import 'variables';
 @import 'colors';
 
-$btnClr: $white300;
-$btnClrHover: $white400;
+$btnClr: $gray400;
+$btnClrHover: $gray500;
 
+/* CSS Reset for buttons */
 @mixin button-reset {
 	padding: 0;
 	border: none;
@@ -27,8 +28,9 @@ $btnClrHover: $white400;
 .btn:hover {
 	background-color: $btnClrHover;
 }
+
 .btn:focus {
 	outline: none;
 	background-color: $btnClrHover;
-	box-shadow: 0 0 0 2px $white300, 0 0 0 1px $white300;
+	box-shadow: 0 0 0 2px $btnClr, 0 0 0 1px $btnClr;
 }

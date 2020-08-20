@@ -4,7 +4,6 @@
 main {
 	padding: 1rem 2rem 1.5rem;
 	margin: 1rem 2% 2rem;
-	border: 1px solid;
 }
 
 #add-pair-container {
@@ -13,15 +12,15 @@ main {
 
 #add-pair-btn {
 	padding: 0.5rem 2rem;
-	background-color: $blue300;
+	background-color: $indigo400;
 }
 
 #add-pair-btn:hover {
-	background-color: $blue400;
+	background-color: $indigo500;
 }
 
 #add-pair-btn:focus {
-	box-shadow: 0 0 0 2px $blue200, 0 0 0 1px $blue200;
+	box-shadow: 0 0 0 2px $indigo300, 0 0 0 1px $indigo300;
 }
 
 @media only screen and (min-width: 360px) {

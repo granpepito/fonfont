@@ -33,11 +33,11 @@ nav {
 }
 
 .navbar-item :hover {
-	color: $blue500;
+	color: $indigo600;
 	transition: $transitionSpeed;
 }
 
-#portfolio-link {
+li > #portfolio-link {
 	display: none;
 }
 
@@ -56,29 +56,29 @@ nav {
 }
 
 .navbar-right > .navbar-item {
-	margin: 0 0 0 0;
+	margin: 0;
 }
 
 @media only screen and (min-width: 360px) {
-	#portfolio-link {
-		display: block;
+	li > #portfolio-link {
+		display: inline-block;
 	}
 
 	.navbar-right > .navbar-item {
-		margin: 0 0.35rem 0 0.35rem;
+		margin: 0 0.35rem;
 	}
 }
 
 @media only screen and (min-width: 768px) {
 	nav {
-		padding: 0.5rem 1rem 0.5rem 1rem;
+		padding: 0.5rem 1rem;
 	}
 
 	.navbar-right > .navbar-item {
-		margin: 0 1rem 0 1rem;
+		margin: 0 1rem;
 	}
 
 	.navbar-item#app-title {
-		margin: 0 1rem 0 1rem;
+		margin: 0 1rem;
 	}
 }

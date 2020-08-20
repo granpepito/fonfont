@@ -1,3 +1,31 @@
+/*  https://gist.github.com/minutiae/3983bb128ad1756ae67ca1bccc184d4c#gistcomment-3010771 */
+/** Transparent **/
+/** Black **/
+/** White **/
+/** Gray **/
+/** Red **/
+/** Orange **/
+/** Yellow **/
+/** Green **/
+/** Teal **/
+/** Blue **/
+/** Indigo **/
+/** Purple **/
+/** Pink **/
+/*  https://gist.github.com/minutiae/3983bb128ad1756ae67ca1bccc184d4c#gistcomment-3010771 */
+/** Transparent **/
+/** Black **/
+/** White **/
+/** Gray **/
+/** Red **/
+/** Orange **/
+/** Yellow **/
+/** Green **/
+/** Teal **/
+/** Blue **/
+/** Indigo **/
+/** Purple **/
+/** Pink **/
 nav {
   display: flex;
   justify-content: space-between;
@@ -31,7 +59,7 @@ nav a {
   transition: 200ms;
 }
 
-#portfolio-link {
+li > #portfolio-link {
   display: none;
 }
 
@@ -50,31 +78,45 @@ nav a {
 }
 
 .navbar-right > .navbar-item {
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 @media only screen and (min-width: 360px) {
-  #portfolio-link {
-    display: block;
+  li > #portfolio-link {
+    display: inline-block;
   }
 
   .navbar-right > .navbar-item {
-    margin: 0 0.35rem 0 0.35rem;
+    margin: 0 0.35rem;
   }
 }
 @media only screen and (min-width: 768px) {
   nav {
-    padding: 0.5rem 1rem 0.5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 
   .navbar-right > .navbar-item {
-    margin: 0 1rem 0 1rem;
+    margin: 0 1rem;
   }
 
   .navbar-item#app-title {
-    margin: 0 1rem 0 1rem;
+    margin: 0 1rem;
   }
 }
+/*  https://gist.github.com/minutiae/3983bb128ad1756ae67ca1bccc184d4c#gistcomment-3010771 */
+/** Transparent **/
+/** Black **/
+/** White **/
+/** Gray **/
+/** Red **/
+/** Orange **/
+/** Yellow **/
+/** Green **/
+/** Teal **/
+/** Blue **/
+/** Indigo **/
+/** Purple **/
+/** Pink **/
 header {
   text-align: center;
   padding: 1rem 2rem 1.5rem;
@@ -98,10 +140,23 @@ header {
     margin: 1rem 20% 2rem;
   }
 }
+/*  https://gist.github.com/minutiae/3983bb128ad1756ae67ca1bccc184d4c#gistcomment-3010771 */
+/** Transparent **/
+/** Black **/
+/** White **/
+/** Gray **/
+/** Red **/
+/** Orange **/
+/** Yellow **/
+/** Green **/
+/** Teal **/
+/** Blue **/
+/** Indigo **/
+/** Purple **/
+/** Pink **/
 main {
   padding: 1rem 2rem 1.5rem;
   margin: 1rem 2% 2rem;
-  border: 1px solid;
 }
 
 #add-pair-container {
@@ -133,6 +188,21 @@ main {
     margin: 1rem 10% 2rem;
   }
 }
+/*  https://gist.github.com/minutiae/3983bb128ad1756ae67ca1bccc184d4c#gistcomment-3010771 */
+/** Transparent **/
+/** Black **/
+/** White **/
+/** Gray **/
+/** Red **/
+/** Orange **/
+/** Yellow **/
+/** Green **/
+/** Teal **/
+/** Blue **/
+/** Indigo **/
+/** Purple **/
+/** Pink **/
+/* CSS Reset for buttons */
 /* New style for buttons */
 .btn {
   padding: 0;
@@ -169,35 +239,9 @@ main {
   filter: invert(100%) url("../icons/github.svg#colorFilter");
 }
 
-@media only screen and (min-width: 360px) {
-  #portfolio-link {
-    display: block;
-  }
-
-  .navbar-right > .navbar-item {
-    margin: 0 0.35rem 0;
-  }
-}
 @media only screen and (min-width: 600px) {
   :root {
     font-size: 1rem;
-  }
-}
-@media only screen and (min-width: 768px) {
-  :root {
-    font-size: 1rem;
-  }
-
-  nav {
-    padding: 0.5rem 1rem 0.5rem;
-  }
-
-  .navbar-right > .navbar-item {
-    margin: 0 1rem 0;
-  }
-
-  .navbar-item#app-title {
-    margin: 0 1rem 0;
   }
 }
 
