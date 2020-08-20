@@ -15,22 +15,106 @@ $btnClrHover: $gray500;
 }
 
 /* New style for buttons */
-.btn {
+@mixin btn($bgClr) {
 	@include button-reset;
 	display: inline-block;
 	text-align: center;
 	text-decoration: none;
 	padding: 0.5em 1em;
-	background-color: $btnClr;
 	border-radius: 0.3rem;
+	background-color: $bgClr;
+}
+
+@mixin btnHover($bgClr) {
+	background-color: $bgClr;
+}
+
+@mixin btnFocus($bgClr, $boxShadowClr) {
+	outline: none;
+	background-color: $bgClr;
+	box-shadow: 0 0 0 2px $boxShadowClr, 0 0 0 1px $boxShadowClr;
+}
+
+.btn {
+	@include btn($btnClr);
 }
 
 .btn:hover {
-	background-color: $btnClrHover;
+	@include btnHover($btnClrHover);
 }
 
 .btn:focus {
-	outline: none;
-	background-color: $btnClrHover;
-	box-shadow: 0 0 0 2px $btnClr, 0 0 0 1px $btnClr;
+	@include btnFocus($btnClrHover, $btnClr);
+}
+
+.btn-primary {
+	@include btn($blue500);
+}
+
+.btn-primary:hover {
+	@include btnHover($blue600);
+}
+
+.btn-primary:focus {
+	@include btnFocus($blue600, $blue500);
+}
+
+.btn-secondary {
+	@include btn($gray500);
+}
+
+.btn-secondary:hover {
+	@include btnHover($gray600);
+}
+
+.btn-secondary:focus {
+	@include btnFocus($gray600, $gray500);
+}
+
+.btn-success {
+	@include btn($green500);
+}
+
+.btn-success:hover {
+	@include btnHover($green600);
+}
+
+.btn-success:focus {
+	@include btnFocus($green600, $green500);
+}
+
+.btn-danger {
+	@include btn($red500);
+}
+
+.btn-danger:hover {
+	@include btnHover($red600);
+}
+
+.btn-danger:focus {
+	@include btnFocus($red600, $red500);
+}
+
+.btn-warning {
+	@include btn($yellow500);
+}
+
+.btn-warning:hover {
+	@include btnHover($yellow600);
+}
+
+.btn-warning:focus {
+	@include btnFocus($yellow600, $yellow500);
+}
+
+.btn-info {
+	@include btn($teal500);
+}
+
+.btn-info:hover {
+	@include btnHover($teal600);
+}
+
+.btn-info:focus {
+	@include btnFocus($teal600, $teal500);
 }
