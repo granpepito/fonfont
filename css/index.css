@@ -1,15 +1,22 @@
-:root {
-  font-size: 0.75rem;
-  --transition-speed: 200ms;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-}
-
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .navbar-item {
@@ -20,22 +27,12 @@ nav {
 }
 
 .navbar-item :hover {
-  color: #5A67D8 ;
-  transition: var(--transition-speed);
-}
-
-.navbar-item a{
-  color: inherit;
-  text-decoration: none;
-}
-
-.github-icon:hover {
-  -webkit-filter: invert(100%) url('../icons/github.svg#colorFilter'); ;
-  filter: invert(100%) url('../icons/github.svg#colorFilter');
+  color: #5a67d8;
+  transition: 200ms;
 }
 
 #portfolio-link {
-  display: none; 
+  display: none;
 }
 
 #app-title {
@@ -56,17 +53,6 @@ nav {
   margin: 0 0 0 0;
 }
 
-header {
-  text-align: center;
-  padding: 1rem 2rem 1.5rem 2rem;
-  margin: 1rem 2% 2rem 2%;
-  background-color: #A3BFFA;
-  border-radius: 0.35rem;
-  -webkit-box-shadow: 0 0.75rem 1rem 0.5rem rgba(163,191,250,0.3);
-  -moz-box-shadow: 0 0.75rem 1rem 0.5rem rgba(163,191,250,0.3);
-  box-shadow: 0 0.75rem 1rem 0.5rem rgba(163,191,250,0.3);
-}
-
 @media only screen and (min-width: 360px) {
   #portfolio-link {
     display: block;
@@ -75,25 +61,8 @@ header {
   .navbar-right > .navbar-item {
     margin: 0 0.35rem 0 0.35rem;
   }
-
-  header {
-    padding: 1rem 2rem 1.5rem 2rem;
-    margin: 1rem 4% 2rem 4%;
-  }
-
 }
-
-@media only screen and (min-width: 600px) {
-  :root {
-    font-size: 1rem;
-  }
-}
-
-@media only screen and (min-width: 768px){
-  :root {
-    font-size: 1rem;
-  }
-
+@media only screen and (min-width: 768px) {
   nav {
     padding: 0.5rem 1rem 0.5rem 1rem;
   }
@@ -105,10 +74,131 @@ header {
   .navbar-item#app-title {
     margin: 0 1rem 0 1rem;
   }
+}
+header {
+  text-align: center;
+  padding: 1rem 2rem 1.5rem;
+  margin: 1rem 2% 2rem;
+  background-color: #a3bffa;
+  border-radius: 0.35rem;
+  -webkit-box-shadow: 0 0.75rem 1rem 0.5rem rgba(163, 191, 250, 0.3);
+  -moz-box-shadow: 0 0.75rem 1rem 0.5rem rgba(163, 191, 250, 0.3);
+  box-shadow: 0 0.75rem 1rem 0.5rem rgba(163, 191, 250, 0.3);
+}
 
+@media only screen and (min-width: 360px) {
   header {
-    padding: 1.5rem 3rem 2rem 3rem;
-    margin: 1rem 20% 2rem 20%;
+    padding: 1rem 2rem 1.5rem;
+    margin: 1rem 5% 2rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  header {
+    padding: 1.5rem 3rem 2rem;
+    margin: 1rem 20% 2rem;
+  }
+}
+main {
+  padding: 1rem 2rem 1.5rem;
+  margin: 1rem 2% 2rem;
+  border: 1px solid;
+}
+
+#add-pair-container {
+  text-align: center;
+}
+
+#add-pair-btn {
+  padding: 0.5rem 2rem;
+  background-color: #7f9cf5;
+}
+
+#add-pair-btn:hover {
+  background-color: #667eea;
+}
+
+#add-pair-btn:focus {
+  box-shadow: 0 0 0 2px #a3bffa, 0 0 0 1px #a3bffa;
+}
+
+@media only screen and (min-width: 360px) {
+  main {
+    padding: 1rem 2rem 1.5rem;
+    margin: 1rem 3% 2rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  main {
+    padding: 1.5rem 3rem 2rem;
+    margin: 1rem 10% 2rem;
+  }
+}
+/* New style for buttons */
+.btn {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  background-color: #cbd5e0;
+  border-radius: 0.3rem;
+}
+
+.btn:hover {
+  background-color: #a0aec0;
+}
+
+.btn:focus {
+  outline: none;
+  background-color: #a0aec0;
+  box-shadow: 0 0 0 2px #cbd5e0, 0 0 0 1px #cbd5e0;
+}
+
+:root {
+  font-size: 0.75rem;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+.github-icon:hover {
+  -webkit-filter: invert(100%) url("../icons/github.svg#colorFilter");
+  filter: invert(100%) url("../icons/github.svg#colorFilter");
+}
+
+@media only screen and (min-width: 360px) {
+  #portfolio-link {
+    display: block;
   }
 
+  .navbar-right > .navbar-item {
+    margin: 0 0.35rem 0;
+  }
 }
+@media only screen and (min-width: 600px) {
+  :root {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  :root {
+    font-size: 1rem;
+  }
+
+  nav {
+    padding: 0.5rem 1rem 0.5rem;
+  }
+
+  .navbar-right > .navbar-item {
+    margin: 0 1rem 0;
+  }
+
+  .navbar-item#app-title {
+    margin: 0 1rem 0;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

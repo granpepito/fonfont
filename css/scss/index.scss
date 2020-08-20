@@ -1,0 +1,50 @@
+@import '_variables';
+@import '_colors';
+@import '_navbar';
+@import '_header';
+@import '_main';
+@import '_button';
+
+:root {
+	font-size: 0.75rem;
+	font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+.github-icon:hover {
+	-webkit-filter: invert(100%) url('../icons/github.svg#colorFilter');
+	filter: invert(100%) url('../icons/github.svg#colorFilter');
+}
+
+@media only screen and (min-width: 360px) {
+	#portfolio-link {
+		display: block;
+	}
+
+	.navbar-right > .navbar-item {
+		margin: 0 0.35rem 0;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	:root {
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	:root {
+		font-size: 1rem;
+	}
+
+	nav {
+		padding: 0.5rem 1rem 0.5rem;
+	}
+
+	.navbar-right > .navbar-item {
+		margin: 0 1rem 0;
+	}
+
+	.navbar-item#app-title {
+		margin: 0 1rem 0;
+	}
+}

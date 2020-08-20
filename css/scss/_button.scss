@@ -1,0 +1,34 @@
+@import 'variables';
+@import 'colors';
+
+$btnClr: $white300;
+$btnClrHover: $white400;
+
+@mixin button-reset {
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+/* New style for buttons */
+.btn {
+	@include button-reset;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	padding: 0.5em 1em;
+	background-color: $btnClr;
+	border-radius: 0.3rem;
+}
+
+.btn:hover {
+	background-color: $btnClrHover;
+}
+.btn:focus {
+	outline: none;
+	background-color: $btnClrHover;
+	box-shadow: 0 0 0 2px $white300, 0 0 0 1px $white300;
+}
