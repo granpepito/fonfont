@@ -23,26 +23,49 @@
 <body>
   <nav>
     <h1 class="navbar-item" id="app-title"><a href=".">FonFont</a></h1>
-    <div class="navbar-right">
-      <a class="navbar-item" href="https://github.com/granpepito/fonfont" target="_blank">
-        <img class="github-icon" src="icons/github.svg" alt="GitHub Logo" width="20px" height="20px">
-      </a>
-      <p class="navbar-item">
-        <a c id="portfolio-link" href="https://github.com/granpepito" target="_blank">
+    <ul class="navbar-right">
+      <li class="navbar-item">
+        <a href="https://github.com/granpepito/fonfont" target="_blank">
+          <img class="github-icon" src="icons/github.svg" alt="GitHub Logo" width="20px" height="20px">
+        </a>
+      </li>
+
+      <li class="navbar-item">
+        <a id="portfolio-link" href="https://github.com/granpepito" target="_blank">
           granpepito
         </a>
-      </p>
-
-    </div>
+      </li>
+      </div>
   </nav>
 
-  <!-- Header // Indicate how to use the app -->
+  <!-- Header || Indicate how to use the app -->
   <header>
     <h2>FonFont</h2>
     <p>Test multiple fonts and choose your favorite pairings.</p>
   </header>
 
   <main>
+    <!-- Header to show what will be on screen -->
+    <div id="pair-presentation-header">
+      <span>Type Sample</span>
+      <span>Fonts</span>
+      <span>Weights</span>
+      <span>Typesetting</span>
+      <span>Example</span>
+    </div>
+
+    <!-- List of font pairs -->
+    <div class="list-pair">
+      <div class="pair">
+        <div class="pair-selection"></div>
+        <div class="pair-presentation"></div>
+      </div>
+    </div>
+
+    <!-- Button to add a new pair -->
+    <div id="add-pair-container">
+      <button type="button" class="btn" id="add-pair-btn">Add Pair</button>
+    </div>
 
 
   </main>
