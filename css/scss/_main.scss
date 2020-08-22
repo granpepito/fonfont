@@ -1,8 +1,9 @@
 @import '_variables';
 @import '_colors';
+@import '_button';
 
 main {
-	padding: 1rem 2rem 1.5rem;
+	padding: 0.5rem 1rem 1.5rem;
 	margin: 1rem 2% 2rem;
 }
 
@@ -17,46 +18,158 @@ main {
 }
 
 #add-pair-btn {
+	@include btn($indigo400);
 	padding: 0.5rem 2rem;
-	background-color: $indigo400;
 }
 
 #add-pair-btn:hover {
-	background-color: $indigo500;
+	@include btnHover($indigo500);
 }
 
 #add-pair-btn:focus {
-	box-shadow: 0 0 0 2px $indigo300, 0 0 0 1px $indigo300;
+	@include btnFocus($indigo500, $indigo300);
+}
+
+.font-bold {
+	font-weight: bold;
+}
+
+.font-regular {
+	font-weight: normal;
+}
+
+///////@include
+
+// Common grid layout for the presentation header of pair (~ summary) and a pair itself
+#pair-presentation-header,
+.pair {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: auto;
+}
+
+// Style for pair's box
+.pair {
+	margin: 1rem 0 0.25rem;
+	border-radius: 0.35rem;
+	padding: 0.75rem;
+	background-color: $blue300;
+}
+
+// Margin for every sections of a pair
+.pair-presentation-section {
+	margin: 0 0.75rem;
+}
+
+// Style for sections of the pair header
+#pair-presentation-header .pair-presentation-section {
+	padding-bottom: 0.75rem;
+	border-style: hidden hidden solid hidden;
+	border-width: 1px;
+	border-color: $black;
+}
+
+#pair-presentation-header :first-child {
+	margin-bottom: 0.5rem;
+}
+
+.type-fonts {
+	grid-column: 1 / -1;
+}
+
+.type-weights {
+	grid-column: 1 / 4;
+}
+
+.type-example {
+	grid-column: 4 / -1;
+}
+
+#pair-presentation-header .pair-presentation-section :first-child {
+	margin-right: 10%;
+}
+
+.pair > .type-weights {
+	display: grid;
+	font-size: 0.75rem;
+	grid-template-rows: repeat(4, 1fr);
+}
+
+.pair > .type-weights > div {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-auto-rows: auto;
+	border-top: solid 1px black;
+	word-break: break-all;
+}
+
+.pair .type-weights :first-child {
+	border-top: none;
+}
+
+.pair .type-weights .font-regular :first-child,
+.pair .type-weights .font-bold :first-child {
+	grid-column: 1 / -1;
+}
+
+.pair .type-weights .font-regular :last-child,
+.pair .type-weights .font-bold :last-child {
+	grid-column: 1 / -1;
+}
+
+.pair .type-example {
+	display: flex;
+	flex-direction: column;
+	font-size: 0.75rem;
+}
+
+.pair .type-example > div {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(48px, auto));
+	grid-auto-rows: auto;
+	justify-content: start;
+}
+
+.pair .type-example .pair-example-typeset {
+	grid-column: 1 / -1;
+}
+
+// TODO: Fix button #pair-example-btn size
+.pair .type-example > div :last-child {
+	grid-column: 1 / -1;
+	word-break: break-word;
+}
+
+.pair .pair-example-title :last-child {
+	font-weight: 700;
+	font-size: 2rem;
+}
+
+.pair .pair-example-lead :last-child {
+	font-size: 1rem;
+}
+
+.pair .pair-example-paragraph :last-child {
+	font-size: 0.75rem;
 }
 
 @media only screen and (min-width: 360px) {
-	main {
-		padding: 1rem 2rem 1.5rem;
-		margin: 1rem 3% 2rem;
-	}
 }
 
 @media only screen and (min-width: 768px) {
-	main {
-		padding: 1.5rem 3rem 2rem;
-		margin: 1rem 7% 2rem;
-	}
-
-	#pair-presentation-header {
+	#pair-presentation-header,
+	.pair {
 		display: grid;
 		grid-template-columns: repeat(8, 1fr);
-	}
-
-	.pair-presentation-section {
-		display: flex;
-		margin: 0 1rem;
+		grid-template-rows: auto;
 	}
 
 	#pair-presentation-header .pair-presentation-section {
-		padding-bottom: 1.5rem;
-		border-style: hidden hidden solid hidden;
-		border-width: 1px;
-		border-color: $black;
+		padding-bottom: 1.25rem;
+	}
+
+	#pair-presentation-header :first-child {
+		margin-bottom: 0;
 	}
 
 	.type-fonts {
@@ -71,7 +184,32 @@ main {
 		grid-column: 5 / -1;
 	}
 
-	#pair-presentation-header .pair-presentation-section :first-child {
-		margin-right: 10%;
+	.pair .type-weights .font-regular :first-child,
+	.pair .type-weights .font-bold :first-child {
+		grid-column: 1 / 4;
+	}
+
+	.pair .type-weights .font-regular :last-child,
+	.pair .type-weights .font-bold :last-child {
+		grid-column: 4 /-1;
+	}
+
+	.pair .type-example .pair-example-typeset {
+		grid-column: 1 / -1;
+	}
+
+	.pair .type-example .pair-example-typeset {
+		grid-column: 1 / 3;
+	}
+
+	.pair .type-example > div :last-child {
+		grid-column: 3 / -1;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	main {
+		padding: 1.5rem 3rem 2rem;
+		margin: 1rem 7% 2rem;
 	}
 }
