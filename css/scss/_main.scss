@@ -69,6 +69,7 @@ main {
 	border-color: $black;
 }
 
+// Separate the grid row from the first pair-presentation-section to the others
 #pair-presentation-header :first-child {
 	margin-bottom: 0.5rem;
 }
@@ -151,6 +152,18 @@ main {
 
 .pair .pair-example-paragraph :last-child {
 	font-size: 0.75rem;
+}
+
+#pair-0 .font-1 {
+	font-family: Raleway;
+}
+
+#pair-0 .font-2 {
+	font-family: 'Open Sans';
+}
+
+.pair .type-fonts > div {
+	margin: 0.5rem 0;
 }
 
 @media only screen and (min-width: 360px) {
