@@ -15,8 +15,7 @@
 
   <!-- https://necolas.github.io/normalize.css/8.0.1/normalize.css -->
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Raleway:wght@400;700&family=Open+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
     integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
   <link rel="stylesheet" href="css/index.css">
@@ -45,6 +44,7 @@
   <header>
     <h2>FonFont</h2>
     <p>Test multiple fonts and choose your favorite pairings.</p>
+    <p>The default font is <em>Inter</em>.</p>
   </header>
 
   <main>
@@ -71,13 +71,13 @@
         <div class="pair-presentation-section type-fonts">
           <div>
             <label class="font-1" for="pair-0-select-font-1">First Font</label>
-            <select class="select-font select-font-1" id="pair-0-select-font-1">
+            <select class="select-font select-font-1" id="pair-0-select-font-1" onchange="updatePair(event, 0)">
               <option value="" disabled selected>Select a font</option>
             </select>
           </div>
           <div>
             <label class="font-2" for="pair-0-select-font-2">Second Font</label>
-            <select class="select-font select-font-2" id="pair-0-select-font-2">
+            <select class="select-font select-font-2" id="pair-0-select-font-2" onchange="updatePair(event, 0)">
               <option value="" disabled selected>Select a font</option>
             </select>
           </div>
@@ -85,7 +85,7 @@
         </div>
 
         <!-- Fonts' weights examples -->
-        <div class="pair-presentation-section type-weights">
+        <div class=" pair-presentation-section type-weights">
           <div class="font-bold font-1">
             <p>Bold</p>
             <div>
