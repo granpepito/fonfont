@@ -211,7 +211,7 @@ function addPair() {
 		.attr('onchange', `updatePair(event, ${pairId})`);
 	newPair
 		.find(`#pair-${pairId - 1}-select-font-2`)
-		.removeAttr('id data-select2-id')
+		.removeAttr('id data-select2-id onchange')
 		.attr('id', `pair-${pairId}-select-font-2`)
 		.attr('data-select2-id', `pair-${pairId}-select-font-2`)
 		.attr('onchange', `updatePair(event, ${pairId})`);
@@ -222,9 +222,9 @@ function addPair() {
 
 	//Add pair to the list
 	newPair.appendTo('#pair-list');
-	newPair.find('.select-font').each(function () {
-		$(this).select2();
-	});
+	// newPair.find('.select-font').each(function () {
+	// 	$(this).select2();
+	// });
 	pairId++;
 	//localStorage.setItem('lastPairId', pairId);
 	//TODO: Add new pair to pairStore;
