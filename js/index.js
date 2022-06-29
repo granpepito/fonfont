@@ -1,8 +1,9 @@
 /**
  * pairStore -> localStorage's pairs
- * pairId -> id of the next pair
+ * pairId -> ID of the next pair
  */
-let pairStore, pairId;
+let pairStore,
+	pairId = 1;
 const pairColors = [
 	'#feb2b2',
 	'#fbd38d',
@@ -16,6 +17,7 @@ const pairColors = [
 ];
 
 /**
+ * Inside pairStore
  * Pair Structure:
  * {
  * 	pairId	: int,
@@ -38,22 +40,21 @@ $(document).ready(function () {
 	if (localStorage.getItem('pairs') === null) {
 		const pairs = [];
 		pairStore = localStorage.setItem('pairs', JSON.stringify(pairs));
-		pairId = 1;
+		// pairId = 1;
 	} else {
 		try {
 			pairStore = JSON.parse(localStorage.getItem('pairs'));
 		} catch (e) {
 			pairStore = localStorage.getItem('pairs');
 		} finally {
-			pairId = pairStore.length++;
+			pairId = pairStore.length + 1;
 			setPreviousPairs();
 		}
 	}
 
 	if (localStorage.getItem('fontsList') === null) {
 		$.ajax({
-			url:
-				'https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyA9zIs6lEdAEasoxpvpuKeg9I8ml7Hu9f4',
+			url: 'https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyA9zIs6lEdAEasoxpvpuKeg9I8ml7Hu9f4',
 
 			dataType: 'json',
 			dataFilter: function (data, type) {
@@ -89,47 +90,6 @@ $(document).ready(function () {
 				// minimumInputLength: 3,
 			});
 		});
-		//TODO: verify if error
-
-		// $('.select-font').select2({
-		// 	ajax: {
-		// 		url: 'https://www.googleapis.com/webfonts/v1/webfonts',
-		// 		data: function (params) {
-		// 			var query = {
-		// 				sort: 'alpha',
-		// 				key: 'AIzaSyA9zIs6lEdAEasoxpvpuKeg9I8ml7Hu9f4',
-		// 			};
-
-		// 			return query;
-		// 		},
-		// 		processResults: function (data) {
-		// 			let results = [];
-
-		// 			results = groupFontsByCategory(data.items);
-
-		// 			let empty = true;
-		// 			let i = 0;
-		// 			while (empty) {
-		// 				if (Object.keys(results[i]).length !== 0) {
-		// 					empty = false;
-		// 				}
-		// 				i++;
-		// 			}
-
-		// 			if (!empty) {
-		// 				localStorage.setItem(
-		// 					'fontsList',
-		// 					JSON.stringify(results)
-		// 				);
-		// 			}
-
-		// 			return {
-		// 				results,
-		// 			};
-		// 		},
-		// 	},
-		// 	minimumInputLength: 3,
-		// });
 	} else {
 		//Get fonts list from local Storage
 		try {
@@ -149,7 +109,6 @@ $(document).ready(function () {
 	function groupFontsByCategory(fonts) {
 		let sansSerif, serif, display, handW, mono;
 
-		//TODO: Use reduce instead of filter and map
 		//Find serif fonts
 		serif = fonts
 			.filter((fontInfo) => fontInfo.category === 'serif')
@@ -223,6 +182,9 @@ $(document).ready(function () {
 
 function setPreviousPairs() {}
 
+/**
+ * Adds a new pair of fonts on the page based on the previous one.
+ */
 function addPair() {
 	console.log('oui');
 	//Get List
@@ -232,10 +194,10 @@ function addPair() {
 	//Copy the last id of the list
 	const newPair = $(`#pair-${pairId - 1}`).clone();
 
-	//Set id for the new pair
+	//Set ID for the new pair
 	newPair.removeAttr('id').attr('id', `pair-${pairId}`);
 
-	//Change attributes of "select" elements
+	//Set the ID on old attributes
 	newPair
 		.find(`label[for^=pair-${pairId - 1}]`)
 		.replaceWith(
@@ -254,16 +216,25 @@ function addPair() {
 		.attr('data-select2-id', `pair-${pairId}-select-font-2`)
 		.attr('onchange', `updatePair(event, ${pairId})`);
 
-	// New color per pair
-	newPair.css('background-color', pairColors[pairId % pairColors.length]);
+	// Color for the new pair
+	const newPairColor = pairColors[pairId % pairColors.length];
+	newPair.css('background-color', newPairColor);
 
 	//Add pair to the list
 	newPair.appendTo('#pair-list');
+	newPair.find('.select-font').each(function () {
+		$(this).select2();
+	});
 	pairId++;
 	//localStorage.setItem('lastPairId', pairId);
 	//TODO: Add new pair to pairStore;
 }
 
+/**
+ * Update a pair of fonts on the screen.
+ * @param event Event called.
+ * @param pairId ID of the pair of font that has to be modified.
+ */
 function updatePair(event, pairId) {
 	const t = event.target;
 	const actualPair = $(`#pair-${pairId}`);
@@ -279,6 +250,11 @@ function updatePair(event, pairId) {
 		active: () => {
 			console.log('fontToUpdate: ' + fontToUpdate + '\n ' + t.value);
 			actualPair.find(fontToUpdate).css('font-family', t.value);
+			actualPair.find(`${fontToUpdate} .font-name`).each(function () {
+				$(this).text(t.value);
+			});
 		},
 	});
 }
+
+function addToPairStore(pairId, font1, font2) {}
