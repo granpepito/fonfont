@@ -91,21 +91,20 @@ $(document).ready(function () {
 			});
 		});
 	} else {
-		//Get fonts list from local Storage
+		//Get fonts list from localStorage
 		try {
-			$('.select-font').select2({
-				data: JSON.parse(localStorage.getItem('fontsList')),
-				// minimumInputLength: 3,
-			});
+			setSelect2Data();
 		} catch (e) {
 			console.error(e);
-			$('.select-font').select2({
-				data: localStorage.getItem('fontsList'),
-				// minimumInputLength: 3,
-			});
+			setSelect2Data('.select-font', localStorage.getItem('fontsList'));
 		}
 	}
 
+	/**
+	 * Sorts the fonts array by categories.
+	 * @param {array} fonts
+	 * @returns {array}
+	 */
 	function groupFontsByCategory(fonts) {
 		let sansSerif, serif, display, handW, mono;
 
@@ -180,51 +179,114 @@ $(document).ready(function () {
 	}
 });
 
+/**
+ * Sets data on a select element for the Select2 plugin
+ * @param {string} selectElement
+ * @param {object} data
+ */
+function setSelect2Data(
+	selectElement = '.select-font',
+	data = JSON.parse(localStorage.getItem('fontsList'))
+) {
+	$(selectElement).select2({
+		data,
+		// minimumInputLength: 3,
+	});
+}
+
+/**
+ * Sets back old pairs present in the localStorage.
+ */
 function setPreviousPairs() {}
 
 /**
  * Adds a new pair of fonts on the page based on the previous one.
  */
 function addPair() {
-	console.log('oui');
-	//Get List
-	// const pairList = $('#pair-list');
-	// console.log(pairList);
-
-	//Copy the last id of the list
-	const newPair = $(`#pair-${pairId - 1}`).clone();
-
-	//Set ID for the new pair
-	newPair.removeAttr('id').attr('id', `pair-${pairId}`);
-
-	//Set the ID on old attributes
-	newPair
-		.find(`label[for^=pair-${pairId - 1}]`)
-		.replaceWith(
-			`<label class="font-1" for="pair-${pairId}-select-font-1">First Font</label>`
-		);
-	newPair
-		.find(`#pair-${pairId - 1}-select-font-1`)
-		.removeAttr('id data-select2-id onchange')
-		.attr('id', `pair-${pairId}-select-font-1`)
-		.attr('data-select2-id', `pair-${pairId}-select-font-1`)
-		.attr('onchange', `updatePair(event, ${pairId})`);
-	newPair
-		.find(`#pair-${pairId - 1}-select-font-2`)
-		.removeAttr('id data-select2-id onchange')
-		.attr('id', `pair-${pairId}-select-font-2`)
-		.attr('data-select2-id', `pair-${pairId}-select-font-2`)
-		.attr('onchange', `updatePair(event, ${pairId})`);
-
 	// Color for the new pair
 	const newPairColor = pairColors[pairId % pairColors.length];
-	newPair.css('background-color', newPairColor);
+	const newPair = `<article class="pair" id="pair-${pairId}" style=" background-color: ${newPairColor}">
 
-	//Add pair to the list
-	newPair.appendTo('#pair-list');
-	// newPair.find('.select-font').each(function () {
-	// 	$(this).select2();
-	// });
+        <!-- List of fonts  -->
+        <div class="pair-presentation-section type-fonts">
+          <div>
+            <label class="font-1" for="pair-${pairId}-select-font-1">First Font</label>
+            <select class="select-font select-font-1" id="pair-${pairId}-select-font-1" onchange="updatePair(event, ${pairId})">
+              <option value="" disabled selected>Select a font</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-2" for="pair-${pairId}-select-font-2">Second Font</label>
+            <select class="select-font select-font-2" id="pair-${pairId}-select-font-2" onchange="updatePair(event, ${pairId})">
+              <option value="" disabled selected>Select a font</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Fonts' weights examples -->
+        <div class=" pair-presentation-section type-weights">
+          <div class="font-bold font-1">
+            <p>Bold</p>
+            <div>
+              <p class="font-name">Raleway</p>
+              <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789<br>!@#$%^&*()</p>
+            </div>
+          </div>
+          <div class="font-regular font-1">
+            <p>Regular</p>
+            <div>
+              <p class="font-name">Raleway</p>
+              <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789<br>!@#$%^&*()</p>
+            </div>
+          </div>
+          <div class="font-bold font-2">
+            <p>Bold</p>
+            <div>
+              <p class="font-name">Open Sans</p>
+              <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789<br>!@#$%^&*()</p>
+            </div>
+          </div>
+          <div class="font-regular font-2">
+            <p>Regular</p>
+            <div>
+              <p class="font-name">Open Sans</p>
+              <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789<br>!@#$%^&*()</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pairing Example  -->
+        <div class="pair-presentation-section type-example">
+          <div class="pair-example-title font-1">
+            <p class="pair-example-typeset">Title</p>
+            <p contenteditable="true">Article Title</p>
+          </div>
+          <div class="pair-example-lead font-1">
+            <p class="pair-example-typeset">Lead</p>
+            <p contenteditable="true">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua ut enim ad.
+            </p>
+          </div>
+          <div class="pair-example-paragraph font-2">
+            <p class="pair-example-typeset">Paragraph</p>
+            <p contenteditable="true">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+          </div>
+          <div class="pair-example-btn font-2">
+            <p class="pair-example-typeset">Button</p>
+            <button type="button" class="btn">Call to action</button>
+          </div>
+
+        </div>
+
+      </article>`;
+
+	$('#pair-list').append(newPair);
+	setSelect2Data(`#pair-${pairId} .select-font`);
 	pairId++;
 	//localStorage.setItem('lastPairId', pairId);
 	//TODO: Add new pair to pairStore;
@@ -248,7 +310,6 @@ function updatePair(event, pairId) {
 		},
 		timeout: 2000,
 		active: () => {
-			console.log('fontToUpdate: ' + fontToUpdate + '\n ' + t.value);
 			actualPair.find(fontToUpdate).css('font-family', t.value);
 			actualPair.find(`${fontToUpdate} .font-name`).each(function () {
 				$(this).text(t.value);
@@ -257,4 +318,10 @@ function updatePair(event, pairId) {
 	});
 }
 
-function addToPairStore(pairId, font1, font2) {}
+/**
+ *
+ * @param {string} pairId
+ * @param {string} font1
+ * @param {string} font2
+ */
+function addPairToPairStore(pairId, font1, font2) {}
