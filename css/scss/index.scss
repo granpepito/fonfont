@@ -6,7 +6,6 @@
 @import '_button';
 
 :root {
-	font-size: 0.85rem;
 	font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
@@ -19,9 +18,6 @@
 }
 
 @media only screen and (min-width: 600px) {
-	:root {
-		font-size: 1rem;
-	}
 }
 
 @media only screen and (min-width: 768px) {

@@ -3,6 +3,7 @@
 @import '_button';
 
 main {
+	font-size: 0.85rem;
 	padding: 0.5rem 1rem 1.5rem;
 	margin: 1rem 2% 2rem;
 }
@@ -165,10 +166,13 @@ main {
 	display: grid;
 	grid-template-rows: repeat(2, 1fr);
 	overflow: hidden;
-	width: 100%;
+	width: auto;
 }
 
-@media only screen and (min-width: 360px) {
+@media only screen and (min-width: 600px) {
+	main {
+		font-size: 1rem;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -226,7 +230,13 @@ main {
 		border-bottom: 0;
 	}
 
-
+	.pair .type-fonts > div {
+		margin: 0.5rem 0;
+		display: grid;
+		grid-template-rows: repeat(2, 1fr);
+		overflow: hidden;
+		width: auto;
+	}
 }
 
 @media only screen and (min-width: 1024px) {
