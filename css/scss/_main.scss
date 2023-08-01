@@ -131,6 +131,7 @@ main {
 	grid-template-columns: repeat(auto-fit, minmax(48px, auto));
 	grid-auto-rows: auto;
 	justify-content: start;
+	word-wrap: break-word;
 }
 
 .pair .type-example .pair-example-typeset {
@@ -155,6 +156,17 @@ main {
 .pair .pair-example-paragraph :last-child {
 	font-size: 0.85rem;
 }
+.pair .pair-example-title {
+	word-wrap: break-word;
+}
+
+.pair .pair-example-lead {
+	word-wrap: break-word;
+}
+
+.pair .pair-example-paragraph {
+	word-wrap: break-word;
+}
 
 .pair .type-fonts {
 	padding: 0.5rem;
@@ -167,6 +179,13 @@ main {
 	grid-template-rows: repeat(2, 1fr);
 	overflow: hidden;
 	width: auto;
+}
+
+.pair
+	.type-fonts
+	> div
+	span.select2.select2-container.select2-container--default {
+	width: 100% !important;
 }
 
 @media only screen and (min-width: 600px) {
