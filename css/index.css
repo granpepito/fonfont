@@ -85,7 +85,6 @@ li > #portfolio-link {
   li > #portfolio-link {
     display: inline-block;
   }
-
   .navbar-right > .navbar-item {
     margin: 0 0.35rem;
   }
@@ -94,11 +93,9 @@ li > #portfolio-link {
   nav {
     padding: 0.5rem 1rem;
   }
-
   .navbar-right > .navbar-item {
     margin: 0 1rem;
   }
-
   .navbar-item#app-title {
     margin: 0 1rem;
   }
@@ -480,6 +477,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(48px, auto));
   grid-auto-rows: auto;
   justify-content: start;
+  word-wrap: break-word;
 }
 
 .pair .type-example .pair-example-typeset {
@@ -504,6 +502,18 @@ main {
   font-size: 0.85rem;
 }
 
+.pair .pair-example-title {
+  word-wrap: break-word;
+}
+
+.pair .pair-example-lead {
+  word-wrap: break-word;
+}
+
+.pair .pair-example-paragraph {
+  word-wrap: break-word;
+}
+
 .pair .type-fonts {
   padding: 0.5rem;
   border-bottom: 1px solid #000;
@@ -517,6 +527,10 @@ main {
   width: auto;
 }
 
+.pair .type-fonts > div span.select2.select2-container.select2-container--default {
+  width: 100% !important;
+}
+
 @media only screen and (min-width: 600px) {
   main {
     font-size: 1rem;
@@ -524,59 +538,47 @@ main {
 }
 @media only screen and (min-width: 768px) {
   #pair-presentation-header,
-.pair {
+  .pair {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: auto;
   }
-
   #pair-presentation-header .pair-presentation-section {
     padding-bottom: 1.25rem;
   }
-
   #pair-presentation-header :first-child {
     margin-bottom: 0;
   }
-
   .type-fonts {
     grid-column: 1/3;
   }
-
   .type-weights {
     grid-column: 3/5;
   }
-
   .type-example {
     grid-column: 5/-1;
   }
-
   .pair .type-weights .font-regular :first-child,
-.pair .type-weights .font-bold :first-child {
+  .pair .type-weights .font-bold :first-child {
     grid-column: 1/4;
   }
-
   .pair .type-weights .font-regular :last-child,
-.pair .type-weights .font-bold :last-child {
+  .pair .type-weights .font-bold :last-child {
     grid-column: 4/-1;
   }
-
   .pair .type-example .pair-example-typeset {
     grid-column: 1/-1;
   }
-
   .pair .type-example .pair-example-typeset {
     grid-column: 1/3;
   }
-
   .pair .type-example > div :last-child {
     grid-column: 3/-1;
   }
-
   .pair .type-fonts {
     padding: 0;
     border-bottom: 0;
   }
-
   .pair .type-fonts > div {
     margin: 0.5rem 0;
     display: grid;
